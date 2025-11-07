@@ -241,6 +241,12 @@ bot.on('message', async (msg) => {
     return;
   }
   
+  // Check caption length
+  if (msg.text.length > 70) {
+    await bot.sendMessage(chatId, 'Caption is too long! Maximum 70 characters allowed.');
+    return;
+  }
+  
   try {
     await processMedia(chatId, userId, msg.text);
   } catch (err) {
