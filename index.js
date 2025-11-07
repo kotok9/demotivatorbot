@@ -22,25 +22,45 @@ fs.readFile('./phrases.json', 'utf8')
     process.exit(1);
   });
 
+// Create temp directory if it doesn't exist
+const tempDir = path.join(__dirname, 'temp');
+fs.mkdir(tempDir, { recursive: true })
+  .then(() => console.log('Temp directory ready'))
+  .catch(err => console.error('Failed to create temp directory:', err));
+
 // User state management
 const userStates = {};
 
 // Helper: Download file from Telegram
 function downloadFile(url, filePath) {
   return new Promise((resolve, reject) => {
+    console.log(`Downloading file to: ${filePath}`);
     const protocol = url.startsWith('https') ? https : http;
-    const file = require('fs').createWriteStream(filePath);
     
-    protocol.get(url, (response) => {
-      response.pipe(file);
-      file.on('finish', () => {
-        file.close();
-        resolve();
+    try {
+      const file = require('fs').createWriteStream(filePath);
+      
+      file.on('error', (err) => {
+        console.error('File write stream error:', err);
+        reject(err);
       });
-    }).on('error', (err) => {
-      require('fs').unlink(filePath, () => {});
+      
+      protocol.get(url, (response) => {
+        response.pipe(file);
+        file.on('finish', () => {
+          file.close();
+          console.log('File downloaded successfully');
+          resolve();
+        });
+      }).on('error', (err) => {
+        console.error('Download error:', err);
+        require('fs').unlink(filePath, () => {});
+        reject(err);
+      });
+    } catch (err) {
+      console.error('Failed to create write stream:', err);
       reject(err);
-    });
+    }
   });
 }
 
