@@ -100,6 +100,8 @@ bot.on('photo', async (msg) => {
       waitingForCaption: true
     };
     
+    console.log(`Created user state for user ${userId}, fileType: image`);
+    
     // Ask for caption with inline keyboard
     const keyboard = {
       inline_keyboard: [[
@@ -260,14 +262,15 @@ bot.on('callback_query', async (query) => {
   const chatId = query.message.chat.id;
   const userId = query.from.id;
   const userState = userStates[userId];
-  
+
   try {
     if (query.data === 'random_caption') {
       // Answer callback to remove loading state
       await bot.answerCallbackQuery(query.id);
       
       if (!userState || !userState.waitingForCaption) {
-        await bot.sendMessage(chatId, 'Please send an image, GIF, or video first.');
+        console.log('No user state found for random caption');
+        await bot.sendMessage(chatId, 'Session expired. Please send your image/GIF/video again.');
         return;
       }
       
