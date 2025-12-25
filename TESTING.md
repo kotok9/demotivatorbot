@@ -25,7 +25,7 @@ npm start
 
 You should see:
 ```
-Loaded 20 demotivational phrases
+Loaded 20 phrases
 Demotivator bot is running...
 ```
 
@@ -37,7 +37,7 @@ Demotivator bot is running...
 3. Send any image (JPG or PNG)
 4. Bot should respond: "Provide your caption for your image/gif" with a "🎲 Random" button
 5. Type a custom caption (e.g., "PRODUCTIVITY")
-6. Bot should send back a demotivational poster with black borders and your caption
+6. Bot should send back a poster with black borders and your caption
 
 ### Test 2: Image with Random Caption
 1. Send any image
@@ -52,7 +52,7 @@ Demotivator bot is running...
 ### Test 4: Video
 1. Send a video file (MP4, MOV, etc.)
 2. Provide a caption or use random
-3. Verify the output is still a video with the demotivator overlay
+3. Verify the output is still a video with the caption overlay
 
 ### Test 5: Unsupported Format
 1. Send a non-media file (like a .txt or .pdf)
@@ -113,5 +113,5 @@ Once local testing passes:
 
 ---
 
-Happy demotivating! 🖤
+Happy captioning! 🎨
 

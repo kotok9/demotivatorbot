@@ -10,12 +10,12 @@ const { createDemotivator, deleteFile } = require('./demotivator');
 const token = process.env.BOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 
-// Load demotivational phrases
+// Load phrases
 let phrases = [];
 fs.readFile('./phrases.json', 'utf8')
   .then(data => {
     phrases = JSON.parse(data);
-    console.log(`Loaded ${phrases.length} demotivational phrases`);
+    console.log(`Loaded ${phrases.length} phrases`);
   })
   .catch(err => {
     console.error('Failed to load phrases.json:', err);
@@ -92,14 +92,14 @@ bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
   const welcomeMessage = `🖤 Welcome to Demotivator Bot! 🖤
 
-Send me an image, GIF, or video, and I'll turn it into a demotivational poster.
+Send me an image, GIF, or video, and I'll add a styled caption to it.
 
 How it works:
 1. Send me your image/GIF/video
 2. I'll ask for a caption (or choose random)
-3. Receive your demotivational masterpiece
+3. Receive your styled masterpiece
 
-Let's embrace the futility of existence together! 💀`;
+The name is historical, but you can use any captions you like! 🎨`;
 
   bot.sendMessage(chatId, welcomeMessage);
 });

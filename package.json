@@ -1,7 +1,7 @@
 {
   "name": "demotivator-bot",
   "version": "1.0.0",
-  "description": "Telegram bot that creates demotivational posters",
+  "description": "Telegram bot that adds styled captions to media",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,15 +9,11 @@
   },
   "keywords": ["telegram", "bot", "demotivator", "ffmpeg", "meme", "poster"],
   "author": "",
-  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/demotivator-bot.git"
+    "url": "https://github.com/kotok9/demotivatorbot.git"
   },
-  "bugs": {
-    "url": "https://github.com/yourusername/demotivator-bot/issues"
-  },
-  "homepage": "https://github.com/yourusername/demotivator-bot#readme",
+  "homepage": "https://github.com/kotok9/demotivatorbot#readme",
   "dependencies": {
     "node-telegram-bot-api": "^0.66.0",
     "dotenv": "^16.4.5"

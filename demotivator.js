@@ -59,7 +59,7 @@ function getVideoDimensions(inputPath) {
 }
 
 /**
- * Create demotivational poster using ffmpeg
+ * Create styled poster with caption using ffmpeg
  * @param {string} inputPath - Path to input file
  * @param {string} caption - Text to display on bottom border (will be uppercased)
  * @returns {Promise<string>} - Path to output file
@@ -69,7 +69,7 @@ async function createDemotivator(inputPath, caption) {
     // Get input dimensions
     const { width, height } = await getVideoDimensions(inputPath);
 
-    // Classic demotivator style - standardized size:
+    // Classic poster style - standardized size:
     // Final dimensions with all borders should have ratio: height = 1.04 × width
     // Working backwards from desired final size
     
