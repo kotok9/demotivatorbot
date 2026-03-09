@@ -17,6 +17,8 @@ Send an image, GIF, or video to the bot → Add your caption (or generate a rand
 
 Built with Node.js and FFmpeg. Produces standardized 690×718px posters with black borders, white frames, and Times New Roman text. The name "Demotivator" is historical, but the bot is used for any kind of captioning.
 
+https://t.me/demotivatormakebot
+
 ## Features
 
 - 📸 Supports images, animated GIFs, and videos
