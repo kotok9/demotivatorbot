@@ -176,7 +176,7 @@ async function createDemotivator(inputPath, caption) {
     if (lines.length === 1) {
       // Single line - center vertically in bottom border
       const escapedText = lines[0].replace(/'/g, "'\\''").replace(/:/g, '\\:');
-      baseFilter += `,drawtext=text='${escapedText}':fontfile=/Windows/Fonts/times.ttf:fontsize=${fontSize}:fontcolor=white:x=(w-text_w)/2:y=h-${blackBorderBottom/2}-text_h/2`;
+      baseFilter += `,drawtext=text='${escapedText}':fontfile=/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf:fontsize=${fontSize}:fontcolor=white:x=(w-text_w)/2:y=h-${blackBorderBottom/2}-text_h/2`;
     } else {
       // Two lines - position them with spacing and shift down a bit
       const textOffsetDown = 8; // Shift text down a bit for two-line text
@@ -187,7 +187,7 @@ async function createDemotivator(inputPath, caption) {
       for (let i = 0; i < lines.length; i++) {
         const escapedLine = lines[i].replace(/'/g, "'\\''").replace(/:/g, '\\:');
         const yPos = startY + (i * lineHeight);
-        baseFilter += `,drawtext=text='${escapedLine}':fontfile=/Windows/Fonts/times.ttf:fontsize=${fontSize}:fontcolor=white:x=(w-text_w)/2:y=${yPos}`;
+        baseFilter += `,drawtext=text='${escapedLine}':fontfile=/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf:fontsize=${fontSize}:fontcolor=white:x=(w-text_w)/2:y=${yPos}`;
       }
     }
     
