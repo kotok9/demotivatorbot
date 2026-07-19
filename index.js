@@ -8,7 +8,7 @@ const { createDemotivator, deleteFile } = require('./demotivator');
 
 // Initialize bot
 const token = process.env.BOT_TOKEN;
-const bot = new TelegramBot(token, { polling: true });
+const bot = new TelegramBot(token, { polling: true, request: { timeout: 30000 } });
 
 // Load phrases
 let phrases = [];
